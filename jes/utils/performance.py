@@ -167,15 +167,15 @@ def get_recommendation(
 
 
 def spherical_polar(x: np.ndarray) -> np.ndarray:
-    r"""Transform an element of the simplex onto the positive orthant of the unit
+    r"""Transform an element of the hypercube onto the positive orthant of the unit
     sphere.
 
     Args:
-        x: A `n x M`-dim array containing elements of the M-dimensional simplex.
+        x: A `n x (M-1)`-dim array containing elements of the (M-1)-dimensional
+        simplex.
 
     Returns:
-        mean_maximizer: A `1 x d`-dim Tensor containing the location of the maximizer
-            of the posterior mean.
+        polar_x: A `n x M`-dim Tensor containing the spherical coordinates.
     """
     M = x.shape[-1] + 1
     polar_x = np.zeros(shape=(len(x), M))
