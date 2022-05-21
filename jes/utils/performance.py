@@ -167,24 +167,26 @@ def get_recommendation(
 
 
 def spherical_polar(x: np.ndarray) -> np.ndarray:
-    r"""Transform an element of the hypercube onto the positive orthant of the unit
+    r"""Transform an element on the hypercube onto the positive orthant of the unit
     sphere.
 
     Args:
-        x: A `n x (M-1)`-dim array containing elements of the (M-1)-dimensional
-        simplex.
+        x: A `n x (M-1)`-dim array containing elements of the (M-1)-dimensional 
+            hypercube.
 
     Returns:
         polar_x: A `n x M`-dim Tensor containing the spherical coordinates.
     """
+
+    y = np.pi * x / 2
     M = x.shape[-1] + 1
     polar_x = np.zeros(shape=(len(x), M))
     for m in range(0, M - 1):
-        polar_x[:, m] = np.cos(x[:, m])
+        polar_x[:, m] = np.cos(y[:, m])
         if m > 0:
-            polar_x[:, m] = polar_x[:, m] * np.prod(np.sin(x[:, 0:m]), axis=-1)
+            polar_x[:, m] = polar_x[:, m] * np.prod(np.sin(y[:, 0:m]), axis=-1)
 
-    polar_x[:, -1] = np.prod(np.sin(x), axis=-1)
+    polar_x[:, -1] = np.prod(np.sin(y), axis=-1)
     return polar_x
 
 
@@ -248,7 +250,7 @@ def compute_ghv(
     weights = []
     for m in range(M - 1):
         beta_dist_m = beta(a=a[m], b=b[m])
-        weights = weights + [np.pi * beta_dist_m.ppf(sample[:, m]) / 2]
+        weights = weights + [beta_dist_m.ppf(sample[:, m])]
 
     w = np.column_stack(weights)
     sw = spherical_polar(w)
