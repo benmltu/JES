@@ -45,7 +45,7 @@ class qJointEntropySearch(AcquisitionFunction):
 
     The batch case `q > 1` is supported through cyclic optimization and fantasies.
 
-    TODO: Implement an user-defined tolerance for the sampling noise.
+    TODO: Implement a user-defined tolerance for the sampling noise.
     """
 
     def __init__(
