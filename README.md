@@ -12,10 +12,10 @@ This code was initially implemented with the following dependencies:
 - SciPy 1.7.3
 - NumPy 1.21.2
 
-In the notebooks folder I have demonstrated how to use the main methods included in this repository. If you want to discuss more about the code presented here feel free to raise a discussion or to e-mail me [...].
+In the notebooks folder I have demonstrated how to use the main methods included in this repository. If you want to discuss more about the code presented here feel free to raise a discussion or to e-mail me ben.tu16@imperial.ac.uk.
 
 ### Additional notes
 
-- The acquisition functions should be able to handle inequality constraints. To utilize the functionality, one would have to implement a constrained multi-objective solver, which returns an approximation to the _feasible_ Pareto set and front. Disclaimer: I have not tested this functionality, but I reckon it should work for the JES and MES acquisition function because the constraints only appear when computing the box-decompositions. The PES acquisition function might cause some issues because it relies on additional hardcoded calculations that I checked with pen and paper, but not numerically.
+- The acquisition functions should be able to handle inequality constraints. To utilize the functionality, one would have to implement a constrained multi-objective solver, which returns an approximation to the _feasible_ Pareto set and front. Disclaimer: I have not tested this functionality, but it should work for the JES and MES acquisition function because the constraints only appear when computing the box-decompositions. The PES acquisition function might cause some issues because it relies on additional hardcoded calculations that I checked with pen and paper, but not numerically.
 
-- The PES acquisition function is approximated using expectation propagation. The automatic gradients inferred for the PES are questionable in practice because certain operations used in the procedure are not differentiable. Therefore, we chose to optimize this acquisition function using gradients approximated by finite differences.
+- The PES acquisition function is approximated using expectation propagation. The automatic gradients inferred for the PES are questionable in practice because certain operations used in the procedure are not differentiable. Therefore, we suggest that this acquisition function should be optimized using gradients approximated by finite differences.
