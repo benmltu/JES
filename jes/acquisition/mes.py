@@ -45,8 +45,6 @@ class qMaximumEntropySearch(AcquisitionFunction):
     at a candidate point X and the Pareto optimal output.
 
     The batch case `q > 1` is supported through cyclic optimization and fantasies.
-
-    TODO: Constraint handling when num_constraints > 0.
     """
 
     def __init__(
