@@ -1,6 +1,8 @@
 # Joint Entropy Search (JES)
 
-This repository contains the code for some multi-objective information-theoretic acquisition functions: Joint Entropy Search (JES), Max-value Entropy Search (MES) and Predictive Entropy Search (PES). All of the acquisition functions are implemented for the BoTorch library (https://github.com/pytorch/botorch/).
+**UPDATE**: The acquisition functions from this repository are now available in BoTorch (https://github.com/pytorch/botorch/pull/1458).
+
+This repository contains the code for some multi-objective information-theoretic acquisition functions: Joint Entropy Search (JES), Max-value Entropy Search (MES) and Predictive Entropy Search (PES). All of the acquisition functions are implemented for the BoTorch library (https://github.com/pytorch/botorch/). The implementation details are available in the paper (https://arxiv.org/abs/2210.02905).
 
 This code was initially implemented with the following dependencies:
 
